@@ -20,4 +20,8 @@
 
 import Route from '@ioc:Adonis/Core/Route'
 
-Route.get('/vehicles', 'VehiclesController.index');
+Route.get('/vehicles', 'VehiclesController.index').middleware('vehicleMiddleware');
+Route.post('/vehicles', 'VehiclesController.store').middleware('vehicleMiddleware');
+Route.patch('/vehicles/:id', 'VehiclesController.update').middleware('vehicleMiddleware');
+Route.delete('/vehicles/:id', 'VehiclesController.destroy').middleware('vehicleMiddleware');
+Route.get('/vehicles/:id', 'VehiclesController.show').middleware('vehicleMiddleware');
